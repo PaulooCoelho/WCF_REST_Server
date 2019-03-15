@@ -1,11 +1,11 @@
-﻿using System;
+﻿using DataAccess.EF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using WCF_REST_Service.DataAccess.EF;
 using WCF_REST_Service.Services.Interfaces;
 
 namespace WCF_REST_Service

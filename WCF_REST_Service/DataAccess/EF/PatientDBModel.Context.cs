@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WCF_REST_Service.DataAccess.EF
+namespace DataAccess.EF
 {
     using System;
     using System.Data.Entity;

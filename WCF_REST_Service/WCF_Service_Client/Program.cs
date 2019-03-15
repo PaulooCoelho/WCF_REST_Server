@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataAccess.EF;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,9 +21,17 @@ namespace WCF_Service_Client
             var reader = new StreamReader(_memoryStream);
             var result = reader.ReadToEnd();
 
+            var patientsList = JsonConvert.DeserializeObject<List<Patient>>(result);
 
+            foreach (var patient in patientsList)
+            {
+                Console.WriteLine(patient.Id);
+                Console.WriteLine(patient.Name);
+                Console.WriteLine(patient.Location);
+                Console.WriteLine(patient.EntryDate);
+            }
 
-            Console.WriteLine(result.ToString());
+            Console.ReadKey();
         }
     }
 }

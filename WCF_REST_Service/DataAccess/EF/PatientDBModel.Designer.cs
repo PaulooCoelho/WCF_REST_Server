@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\User01\Source\Repos\WCF_REST_Server\WCF_REST_Service\WCF_REST_Service\DataAccess\EF\PatientDBModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\User01\Source\Repos\WCF_REST_Server\WCF_REST_Service\DataAccess\EF\PatientDBModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
