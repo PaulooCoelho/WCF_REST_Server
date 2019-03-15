@@ -30,5 +30,32 @@ namespace WCF_REST_Service
                 return db.Patients.Where(x => x.Id == patientID).SingleOrDefault();
             }
         }
+
+        public int AddPatient(Patient patient)
+        {
+            using (var db = new PatientsDBEntities())
+            {
+                db.Patients.Add(patient);
+                db.SaveChanges();
+
+                return patient.Id;
+            }
+        }
+
+        public bool UpdatePatient(Patient _patient)
+        {
+            using (var db = new PatientsDBEntities())
+            {
+                var patient = db.Patients.Where(x => x.Id == _patient.Id).SingleOrDefault();
+
+                patient.Name = _patient.Name;
+                patient.Location = _patient.Location;
+                patient.EntryDate = _patient.EntryDate;
+
+                db.SaveChanges();
+
+                return true;
+            }
+        }
     }
 }

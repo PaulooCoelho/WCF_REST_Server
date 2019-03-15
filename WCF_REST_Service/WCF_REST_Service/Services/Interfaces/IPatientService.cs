@@ -19,5 +19,13 @@ namespace WCF_REST_Service.Services.Interfaces
         [OperationContract]
         [WebGet(UriTemplate="Patient/{id}", ResponseFormat=WebMessageFormat.Xml)]
         Patient GetPatient(string id);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate="Patient/Add", Method="POST")]
+        int AddPatient(Patient patient);
+
+        [OperationContract]
+        [WebInvoke(UriTemplate="Patient/Update", Method = "PUT")]
+        bool UpdatePatient(Patient _patient);
     }
 }
