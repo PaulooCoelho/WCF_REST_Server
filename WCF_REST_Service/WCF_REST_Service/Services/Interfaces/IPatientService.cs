@@ -13,11 +13,11 @@ namespace WCF_REST_Service.Services.Interfaces
     public interface IPatientService
     {
         [OperationContract]
-        [WebGet]
+        [WebGet(UriTemplate="AllPatients", ResponseFormat=WebMessageFormat.Json)]
         List<Patient> GetAllPatients();
 
         [OperationContract]
-        [WebGet]
-        Patient GetPatient(int id);
+        [WebGet(UriTemplate="Patient/{id}", ResponseFormat=WebMessageFormat.Xml)]
+        Patient GetPatient(string id);
     }
 }

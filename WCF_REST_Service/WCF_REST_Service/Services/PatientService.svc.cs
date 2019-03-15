@@ -22,11 +22,12 @@ namespace WCF_REST_Service
             }
         }
 
-        public Patient GetPatient(int id)
+        public Patient GetPatient(string id)
         {
             using (var db = new PatientsDBEntities())
             {
-                return db.Patients.Find(id);
+                var patientID = Int32.Parse(id);
+                return db.Patients.Where(x => x.Id == patientID).SingleOrDefault();
             }
         }
     }
