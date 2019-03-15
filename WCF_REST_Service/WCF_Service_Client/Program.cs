@@ -10,26 +10,23 @@ using System.Threading.Tasks;
 
 namespace WCF_Service_Client
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            var proxyServer = new WebClient();
-            var serviceUrl = String.Format("http://localhost:50525/Services/PatientService.svc/AllPatients");
-            var _data = proxyServer.DownloadData(serviceUrl);
-            var _memoryStream = new MemoryStream(_data);
-            var reader = new StreamReader(_memoryStream);
-            var result = reader.ReadToEnd();
+            var serviceActions = new ServiceActions();
 
-            var patientsList = JsonConvert.DeserializeObject<List<Patient>>(result);
+            serviceActions.ReadWCFData();
 
-            foreach (var patient in patientsList)
-            {
-                Console.WriteLine(patient.Id);
-                Console.WriteLine(patient.Name);
-                Console.WriteLine(patient.Location);
-                Console.WriteLine(patient.EntryDate);
-            }
+
+            var patient = new Patient();
+
+            patient.Id = 1;
+            patient.Name = "Updated";
+            patient.Location = "Loures";
+            patient.EntryDate = DateTime.Now;
+
+            serviceActions.UpdateWCFData(patient);
 
             Console.ReadKey();
         }
